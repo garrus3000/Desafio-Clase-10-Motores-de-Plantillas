@@ -1,0 +1,32 @@
+extend layout.pug
+block contenido
+
+    body 
+        h1.class.text-center.mt-3 Productos 
+            span(class="text-warning") PUG
+        if(productos.length > 0)
+            section.container
+                table.class.table.boder-dark.table-light.table-striped
+                    thead
+                        tr(class="table-primary fs-5")
+                            th(scope="col") #
+                            th(scope="col") Nombre
+                            th(scope="col") Precio
+                            th(scope="col") Foto URL
+             
+                    tbody(class="align-middle")
+                        each producto in productos
+                            tr
+                                th(scope="row") #{producto.id}
+                                td #{producto.title}
+                                td #{producto.price}
+                                td
+                                    img(src=`${producto.thumbnail}` width="75")
+                a( href="http://localhost:8080/")
+                    button( class="btn btn-primary") Agregar productos                 
+
+        else
+            div( class="container")
+                h3( class="border border-3 border-danger text-secondary text-center p-2") No hay productos
+                a( href="http://localhost:8080/")
+                    button( class="btn btn-primary") Agregar productos

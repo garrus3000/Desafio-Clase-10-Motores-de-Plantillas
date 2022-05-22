@@ -1,0 +1,17 @@
+extend layout.pug
+block contenido
+
+    body 
+        h1.class.text-center.mt-3 Formulario 
+            span(class="text-warning") PUG
+        div.class.container.mt-4.bg-light.p-2.border
+            form(action="/productos" enctype="application/x-www-form-urlencoded" method="POST")
+                div.class.mb-5
+                    label(for="title" class="form-label") Nombre
+                    input(type="text" class="form-control" id="title" name="title")
+                    label( for="price" class="form-label") Precio
+                    input( type="number" class="form-control" id="price" name="price")
+                    label( for="thumbnail" class="form-label") Foto URL
+                    input( type="text" class="form-control" id="thumbnail" name="thumbnail")
+                button.class.btn( type="submit" class="btn btn-primary me-3") Cargar producto
+                a(href="/productos" class="btn btn-outline-warning") Ver Productos

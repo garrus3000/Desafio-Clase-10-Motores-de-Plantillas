@@ -1,0 +1,38 @@
+<%- include('partials/main.ejs') %>
+
+<main>
+    <h1 class="text-center mt-3 mb-3">Productos <span class="text-primary">EJS</span></h1>
+    <% if( productos.length > 0) { %>
+    <section class="container">
+        <table class="table border-dark table-light table-striped">
+            <thead>
+                <tr class="table-primary fs-5">
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Foto</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                <% productos.forEach((producto) => {%>
+                <tr>
+                    <th scope="row"><%=producto.id%></th>
+                    <td><%=producto.title%></td>
+                    <td><%=producto.price%></td>
+                    <td><img src="<%=producto.thumbnail%>" width="75"></td>
+                </tr>
+                <%});%>
+        </table>
+        <a href="http://localhost:8080/"><button class="btn btn-primary">Agregar productos</button></a>
+    </section>
+    <% } else { %>
+    <div class="container">
+        <h3 class="border border-3 border-danger text-secondary text-center p-2">No hay productos</h3>
+        <a href="http://localhost:8080/"><button class="btn btn-primary">Agregar productos</button></a>
+    </div>
+    <% } %>
+</main>
+
+</body>
+
+</html>
